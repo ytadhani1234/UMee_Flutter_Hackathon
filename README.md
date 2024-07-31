@@ -1,4 +1,4 @@
-# flutter_newsfeed_project
+# Flutter_Newsfeed_Project
 
 A new Flutter project.
 
