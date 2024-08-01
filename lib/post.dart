@@ -1,5 +1,8 @@
+import 'user.dart';
+
 class Post {
-  final String userName;
+  final User user;
+  
   // final String postContentUrl;
   final String content;
   final String imageUrl;
@@ -9,11 +12,18 @@ class Post {
   bool isLiked;
 
   Post({
-    required this.userName, 
+    required this.user, 
     required this.content, 
     required this.imageUrl,
     required this.timeStamp,
     this.likeCount = 0,
     this.isLiked = false
     });
+
+  User get getUser => user;
+  String get getContent => content;
+  String get getImageUrl => imageUrl;
+  DateTime get getTimeStamp => timeStamp;
+  int get getLikeCount => likeCount;
+  bool get getIsLiked => isLiked;
 }
