@@ -29,4 +29,9 @@ class Post {
   DateTime get getTimeStamp => timeStamp;
   int get getLikeCount => likeCount;
   bool get getIsLiked => isLiked;
+
+  @override
+  String toString() {
+    return 'Post(user: ${user.userName}, contentTitle: $contentTitle, contentUrl: $contentUrl, imageUrl: $imageUrl, timeStamp: $timeStamp, likeCount: $likeCount, isLiked: $isLiked)';
+  }
 }

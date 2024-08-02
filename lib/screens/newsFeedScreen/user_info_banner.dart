@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_newsfeed_project/post.dart';
 import 'package:flutter_newsfeed_project/user.dart';
 
 class UserInfoBanner extends StatelessWidget {

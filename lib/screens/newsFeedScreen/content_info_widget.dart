@@ -15,6 +15,26 @@ class ContentInfoWidget extends StatefulWidget {
 
 class _ContentInfoWidgetState extends State<ContentInfoWidget> {
   bool _isHovering = false;
+  bool _isUrlValid = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _checkUrlValidity();
+  }
+
+  void _checkUrlValidity() async {
+    final Uri? uri = Uri.tryParse(widget.contentUrl);
+    if (uri != null && await canLaunchUrl(uri)) {
+      setState(() {
+        _isUrlValid = true;
+      });
+    } else {
+      setState(() {
+        _isUrlValid = false;
+      });
+    }
+  }
 
   void _onHover(bool isHovering) {
     setState(() {
@@ -39,15 +59,16 @@ class _ContentInfoWidgetState extends State<ContentInfoWidget> {
 
   Widget _buildTitleText() {
     return MouseRegion(
-      cursor: SystemMouseCursors.click,
+      cursor: _isUrlValid ? SystemMouseCursors.click : SystemMouseCursors.basic,
       onEnter: (_) => _onHover(true),
       onExit: (_) => _onHover(false),
       child: GestureDetector(
-        onTap: () => _launchURL(widget.contentUrl),
+        onTap: _isUrlValid ? () => _launchURL(widget.contentUrl) : null,
         child: Text(
           widget.contentTitle + '(...)',
           style: getTitleTextStyle().copyWith(
-            decoration: _isHovering ? TextDecoration.underline : TextDecoration.none,
+            decoration: _isHovering && _isUrlValid ? TextDecoration.underline : TextDecoration.none,
+            color: _isUrlValid ? Colors.white : Colors.grey,
           ),
         ),
       ),
@@ -55,8 +76,9 @@ class _ContentInfoWidgetState extends State<ContentInfoWidget> {
   }
 
   void _launchURL(String url) async {
+    _checkUrlValidity();
     final Uri uri = Uri.parse(url);
-    if (await canLaunchUrl(uri)) {
+    if (await canLaunchUrl(uri) && _isUrlValid) {
       await launchUrl(uri, mode: LaunchMode.externalApplication);
     } else {
       throw 'Could not launch $url';
@@ -72,6 +94,17 @@ class _ContentInfoWidgetState extends State<ContentInfoWidget> {
           child: Image.network(
             widget.imageUrl,
             fit: BoxFit.cover, // Use BoxFit.cover to ensure the image covers the entire container
+            errorBuilder: (context, error, stackTrace) {
+              return Container(
+                color: Colors.grey[300],
+                child: Center(
+                  child: Text(
+                    'No Image',
+                    style: TextStyle(color: Colors.black),
+                  ),
+                ),
+              );
+            },
           ),
         ),
       ),

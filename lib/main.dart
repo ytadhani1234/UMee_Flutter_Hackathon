@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'post_provider.dart';
-import 'news_feed_newpage.dart';
+import 'news_feed_page.dart';
 
 void main() {
   runApp(
@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.red,
       ),
-      home: NewsFeedNewPage(),
+      home: NewsFeedPage(),
     );
   }
 }
