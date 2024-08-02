@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_newsfeed_project/post.dart';
 import 'user_info_banner.dart';
+import 'content_info_widget.dart';
+import 'icon_widget.dart';
 
 class NewsPostCard extends StatelessWidget {
   final Post postForCard;
@@ -20,7 +22,14 @@ class NewsPostCard extends StatelessWidget {
       child:
           Padding(
             padding: const EdgeInsets.all(16.0), 
-            child: UserInfoBanner(postForCard.getUser)
+            child: Column(
+              children: [
+                UserInfoBanner(postForCard.getUser),
+                SizedBox(height: 10.0),
+                ContentInfoWidget(postForCard.contentTitle, postForCard.contentUrl, postForCard.imageUrl, postForCard.timeStamp),
+                IconWidget(postForCard)
+                ]
+            )
             ),
     ));
   }

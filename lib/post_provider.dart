@@ -33,6 +33,11 @@ class PostProvider with ChangeNotifier {
     return posts;
   }
 
+  void addPost(Post post) {
+    posts.add(post);
+    notifyListeners();
+  }
+
   //changes isLiked from false to true and vice versa
   void toggleLike(Post post){
     post.likeCount += post.isLiked ? -1 : 1;

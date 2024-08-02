@@ -17,7 +17,7 @@ class UserInfoBanner extends StatelessWidget {
           userForCard.userName,
           style: const TextStyle(
             fontWeight: FontWeight.bold,
-            fontSize: 16.0,
+            fontSize: 13.0,
             color: Colors.white,
           ),
         ),
@@ -29,13 +29,13 @@ class UserInfoBanner extends StatelessWidget {
     final profileImageUrl = userForCard.profileImageUrl;
     if (profileImageUrl.isEmpty) {
       return const CircleAvatar(
-        radius: 50.0,
-        child: Icon(Icons.person, size: 50.0),
+        radius: 22.0,
+        child: Icon(Icons.person, size: 22.0),
       );
     } else {
       return CircleAvatar(
         backgroundImage: NetworkImage(profileImageUrl),
-        radius: 50.0,
+        radius: 22.0,
         onBackgroundImageError: (exception, stackTrace) {
           // If there's an error loading the image, show the person icon
           // return Icon(Icons.person, size: 50.0);
