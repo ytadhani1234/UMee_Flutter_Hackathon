@@ -18,18 +18,19 @@ class NewsFeedNewPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            NewsPostCard(getPost(''))
+            NewsPostCard(getPost())
             ],
           )
     );
-        
   }
 
-  Post getPost(String ran){
+  Post getPost(){
     return Post(
-              user: User(userName: 'Johnny', profileImageUrl: 'https://assets.mycast.io/posters/jonathan-loughran-spin-off-fan-casting-poster-276608-large.jpg?1672960291'),
-              content: 'Hotel Trans Reporting First Post',
-              imageUrl: 'https://i.pinimg.com/originals/5d/06/03/5d0603a8adca0f722407f393b3af7611.png',
+              user: User(
+                userName: 'Johnny', profileImageUrl: ''),
+              contentTitle: 'The Loneliness Paradox: Unmasking the Irony of Digital Connectivity',
+              contentUrl: 'https://medium.com/umeeapp/the-loneliness-paradox-unmasking-the-irony-of-digital-connectivity-ee4641124cf4',
+              imageUrl: 'https://i1.sndcdn.com/artworks-000079767967-go8p1n-t500x500.jpg',
               timeStamp: DateTime.now(),
               likeCount: 10
               );
