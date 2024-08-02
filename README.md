@@ -1,8 +1,12 @@
 # Flutter_Newsfeed_Project
 
-##Instruction on how to run
+## Instruction on how to run
+1) Clone the repository
+2) Run main.dart(test for chrome)
 
-
+## Design choice
+User's direct access to news post and ability to view it first hand. Also easy access to adding their own posts to the list.
+____________________________________________________________________________________________________
 A new Flutter project.
 
 ## Getting Started
