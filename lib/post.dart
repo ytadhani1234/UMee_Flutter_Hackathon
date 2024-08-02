@@ -4,7 +4,8 @@ class Post {
   final User user;
   
   // final String postContentUrl;
-  final String content;
+  final String contentTitle;
+  final String contentUrl;
   final String imageUrl;
   final DateTime timeStamp; //DateTime.now() --> for current time (https://api.dart.dev/stable/3.4.4/dart-core/DateTime-class.html)
 
@@ -13,7 +14,8 @@ class Post {
 
   Post({
     required this.user, 
-    required this.content, 
+    required this.contentTitle, 
+    required this.contentUrl,
     required this.imageUrl,
     required this.timeStamp,
     this.likeCount = 0,
@@ -21,7 +23,8 @@ class Post {
     });
 
   User get getUser => user;
-  String get getContent => content;
+  String get getContentTitle => contentTitle;
+  String get getContentUrl => contentUrl;
   String get getImageUrl => imageUrl;
   DateTime get getTimeStamp => timeStamp;
   int get getLikeCount => likeCount;
