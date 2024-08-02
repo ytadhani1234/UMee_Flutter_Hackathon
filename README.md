@@ -1,5 +1,8 @@
 # Flutter_Newsfeed_Project
 
+##Instruction on how to run
+
+
 A new Flutter project.
 
 ## Getting Started

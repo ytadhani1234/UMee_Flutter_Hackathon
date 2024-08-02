@@ -68,7 +68,7 @@ class _ContentInfoWidgetState extends State<ContentInfoWidget> {
           widget.contentTitle + '(...)',
           style: getTitleTextStyle().copyWith(
             decoration: _isHovering && _isUrlValid ? TextDecoration.underline : TextDecoration.none,
-            color: _isUrlValid ? Colors.white : Colors.grey,
+            // color: _isUrlValid ? Colors.white : Colors.grey,
           ),
         ),
       ),
