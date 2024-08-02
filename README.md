@@ -6,7 +6,8 @@
 
 ## Design choice
 User's direct access to news post and ability to view it first hand. Also easy access to adding their own posts to the list.
-____________________________________________________________________________________________________
+
+<!-- ____________________________________________________________________________________________________ -->
 <!-- A new Flutter project.
 
 ## Getting Started
